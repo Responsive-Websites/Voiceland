@@ -1,0 +1,27 @@
+body {
+  font-family: librefranklin;
+  font-weight: 400;
+  font-size: 10px;
+  color: #000000;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  padding: 0px 15px;
+  box-sizing: content-box;
+}
+
+h1 {
+  font-family: TenorSans;
+  font-size: 36px;
+  line-height: 117%;
+  text-transform: uppercase;
+  @media screen and (max-width: 769px) {
+    font-size: 30px;
+  }
+  @media screen and (max-width: 481px) {
+    font-size: 26px;
+  }
+}

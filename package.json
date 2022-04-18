@@ -8,7 +8,6 @@
     "dev": "gulp",
     "build": "gulp build --build",
     "zip": "gulp deployZIP --build"
-
   },
   "repository": {
     "type": "git",
