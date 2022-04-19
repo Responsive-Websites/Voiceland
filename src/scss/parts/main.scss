@@ -16,6 +16,12 @@
   &__posts {
     margin-top: 48.5px;
   }
+  &__latest-posts {
+    margin-top: 90px;
+    @media screen and (max-width: 1025px) {
+      margin-top: 50px;
+    }
+  }
 }
 .facial-block {
   &__inner {
@@ -23,6 +29,7 @@
     flex-flow: row nowrap;
     align-items: flex-start;
     justify-content: center;
+
     @media screen and (max-width: 900px) {
       display: block;
     }
@@ -125,10 +132,9 @@
 }
 
 .posts {
-  &__container {
-  }
-
   &__inner {
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 30px;
   }
 
   &__row {
@@ -136,19 +142,48 @@
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: flex-start;
+    @media screen and (max-width: 768px) {
+      justify-content: center;
+    }
+    @media screen and (max-width: 481px) {
+      display: block;
+    }
   }
 
   &__item {
-    flex: 0 0 387px;
-    margin-bottom: 76px;
+    flex-basis: calc(33% - 19.5px);
+    flex-grow: 1;
+    margin-bottom: 50px;
     margin-right: 19.5px;
     &:nth-child(3n) {
-      background-color: #666666;
       margin-right: 0px;
     }
-    @media screen and (max-width: 1200px) {
-      flex: 0 1 387px;
-      flex-wrap: nowrap;
+    @media screen and (max-width: 768px) {
+      flex-basis: calc(50% - 19.5px);
+
+      &:nth-child(3n) {
+        margin-right: 19.5px;
+      }
+      &:nth-child(2n) {
+        margin-right: 0px;
+      }
+      margin-bottom: 56px;
+    }
+    @media screen and (max-width: 481px) {
+      &:nth-child(3n) {
+        margin-right: 0px;
+      }
+      &:nth-child(2n) {
+        margin-right: 0px;
+      }
+      margin-right: 0px;
+
+      &:not(:last-child) {
+        margin-bottom: 40px;
+      }
+      &:last-child {
+        margin-bottom: 20px;
+      }
     }
   }
   &__image {
@@ -156,10 +191,38 @@
       max-width: 387px;
       width: 100%;
     }
+    @media screen and (max-width: 481px) {
+      text-align: center;
+    }
   }
 }
 
 .post {
+  position: relative;
+  &::before {
+    transform: scaleX(0);
+    transform-origin: bottom right;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  &::before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    inset: 99% 30% 0 0;
+    background: #f7f4f4;
+    z-index: -1;
+    transition: transform 0.3s ease;
+  }
+
   &__image {
     margin-bottom: 24px;
   }
@@ -171,6 +234,9 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #999999;
+    @media screen and (max-width: 768px) {
+      font-size: 9px;
+    }
   }
 
   &__title {
@@ -179,6 +245,10 @@
     font-size: 20px;
     line-height: 120%;
     text-transform: uppercase;
+    max-width: 377px;
+    @media screen and (max-width: 768px) {
+      font-size: 18px;
+    }
   }
 
   &__signature {
@@ -187,5 +257,168 @@
     line-height: 12px;
     letter-spacing: 1px;
     text-transform: uppercase;
+    @media screen and (max-width: 768px) {
+      font-size: 9px;
+    }
+  }
+}
+
+.latest-posts {
+  &__button {
+  }
+  &__inner {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 90px;
+    @media screen and (max-width: 768px) {
+      padding-bottom: 70px;
+    }
+    @media screen and (max-width: 481px) {
+      padding-bottom: 40px;
+    }
+  }
+  &__subtitle {
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    align-self: flex-start;
+    color: #999999;
+    line-height: 12px;
+    margin-bottom: 30px;
+  }
+  &__title {
+    @media screen and (max-width: 481px) {
+      max-width: none;
+    }
+  }
+  &__row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row wrap;
+    margin-bottom: 30px;
+    @media screen and (max-width: 768px) {
+      margin-bottom: 20px;
+    }
+    @media screen and (max-width: 481px) {
+      display: block;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__post {
+    flex: 1 0 calc(25% - 20px);
+    margin-right: 20px;
+
+    margin-bottom: 50px;
+    &:nth-child(4n) {
+      margin-right: 0px;
+    }
+
+    @media screen and (max-width: 1025px) {
+      flex: 1 0 calc(33% - 15px);
+      margin-right: 15px;
+
+      margin-bottom: 54px;
+      &:nth-child(4n) {
+        margin-right: 15px;
+      }
+      &:nth-child(3n) {
+        margin-right: 0px;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      flex: 1 0 calc(50% - 15px);
+
+      &:nth-child(2n) {
+        margin-right: 0px;
+      }
+      &:nth-child(3n) {
+        margin-right: 0px;
+      }
+      &:nth-child(4n) {
+        margin-right: 0px;
+      }
+      &:nth-child(odd) {
+        margin-right: 12px;
+      }
+    }
+    @media screen and (max-width: 481px) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__image {
+    & img {
+      width: 100%;
+      @media screen and (max-width: 768px) {
+        max-width: none;
+        width: 100%;
+      }
+    }
+    @media screen and (max-width: 481px) {
+      display: none;
+    }
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row nowrap;
+  padding: 21px 26px;
+
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.726) inset;
+
+  margin: auto;
+
+  position: relative;
+
+  $easeInOutQuint: cubic-bezier(0.86, 0, 0.07, 1);
+  $timing: 0.4s;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 2px;
+    transition: height $timing $timing $easeInOutQuint,
+      width $timing $easeInOutQuint;
+  }
+
+  &::before {
+    box-shadow: 2px 2px 0 rgba(255, 255, 255, 1) inset;
+    bottom: 0;
+    left: 0;
+  }
+
+  &::after {
+    box-shadow: -2px -2px 0 rgba(255, 255, 255, 1) inset;
+    top: 0;
+    right: 0;
+  }
+
+  &:hover {
+    &::before,
+    &::after {
+      height: 100%;
+      width: 100%;
+      transition: height $timing $easeInOutQuint,
+        width $timing $timing $easeInOutQuint;
+    }
+  }
+
+  &__link {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 120%;
+    font-size: 10px;
   }
 }
