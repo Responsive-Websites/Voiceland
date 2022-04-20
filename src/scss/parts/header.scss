@@ -6,13 +6,21 @@
     justify-content: space-between;
     align-items: center;
     padding: 33.3px 0px 33px 0px;
+    @media screen and (max-width: 472px) {
+      display: block;
+      padding: 23.3px 0px 23px 0px;
+    }
   }
 
   &__logo {
     flex: 0 1 200px;
+
     & img {
       max-width: 136px;
       width: 100%;
+      @media screen and (max-width: 472px) {
+        margin-bottom: 30px;
+      }
     }
   }
 
@@ -26,6 +34,9 @@
     align-items: center;
     flex-flow: row wrap;
     padding: 0px 10px 0px 0px;
+
+    @media screen and (max-width: 472px) {
+    }
   }
 
   &__item {
@@ -62,6 +73,9 @@
       background: #cfc4c4;
       z-index: -1;
       transition: transform 0.3s ease;
+    }
+    @media screen and (max-width: 472px) {
+      font-size: 16px;
     }
   }
 }
